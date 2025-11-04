@@ -1,0 +1,70 @@
+
+.alert {
+  min-width: 300px;
+	display: grid;
+  justify-items: center;
+  gap: 16px;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%) translateY(-150%);
+	background-color: #fff;
+	border: 1px solid #000;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04);
+	border-radius: 12px;
+	padding: 1rem;
+
+	z-index: 300;
+}
+
+.alert p {
+  color: #2d3748;
+  font-size: 16px;
+}
+
+.alert button {
+  padding: 6px 16px;
+  background-color: #4a5568;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.alert:global(._show) {
+  animation: showAlert 0.5s ease forwards;
+}
+
+.alert:global(._hide) {
+  animation: hideAlert 0.5s ease forwards;
+}
+
+@keyframes showAlert {
+  0% {
+    transform: translateX(-50%) translateY(-150%);
+  }
+  20% {
+    transform: translateX(-50%) translateY(10%);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+@keyframes hideAlert {
+  0% {
+    transform: translateX(-50%) translateY(10%);
+  }
+  20% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  60% {
+    transform: translateX(-50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-150%);
+  }
+}

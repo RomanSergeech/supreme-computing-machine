@@ -1,0 +1,12 @@
+.canvasWrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-height: 500px;
+}
+
+.canvas {
+  display: block;
+  background-color: #fff;
+}

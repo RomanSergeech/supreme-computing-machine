@@ -1,0 +1,93 @@
+.landingFooter {
+  background: #2d3748;
+  color: #fff;
+  padding: 3rem 0 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footerBrand p {
+  color: #a0aec0;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(74, 85, 104, .3);
+}
+
+.logoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.linkGroup h4 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.linkGroup a {
+  display: block;
+  color: #a0aec0;
+  text-decoration: none;
+  margin-bottom: .5rem;
+  transition: color .2s ease;
+}
+
+.linkGroup a:hover {
+  color: #fff;
+}
+
+.footerBottom {
+  border-top: 1px solid #4a5568;
+  padding-top: 1rem;
+  text-align: center;
+  color: #a0aec0;
+}
+
+
+
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

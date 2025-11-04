@@ -1,0 +1,105 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px){
+  .card{
+    grid-column: span 2;
+  }
+}
+
+
+.card {
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+.bigCard{
+  grid-column: span 2;
+}
+
+.cardHeader {
+  padding: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cardBody {
+  padding: 24px;
+}
+
+.activityRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.iconPlaceholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #d1d5db;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.subtext {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.footer {
+  font-size: 13px;
+  color: #6b7280;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.barLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.barColorLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barColorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+}
+
+.progressBar {
+  height: 8px;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.3s ease;
+}

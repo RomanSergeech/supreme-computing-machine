@@ -1,0 +1,138 @@
+.container {
+  padding: 14px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  background: transparent;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.controls {
+  display: grid;
+  gap: 8px;
+  align-items: center;
+}
+
+.search{
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.searchInput {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  min-width: 200px;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* buttons */
+.addBtn, .grayBtn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #eef3f7;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Rules area */
+.rulesArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* accordion look like cards to match OfficeSettings */
+.accordion {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(2,6,23,0.03);
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.count {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.chev { color: #64748b; }
+
+.accordionBody {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ruleRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.ruleRow:hover {
+  background: #fafafa;
+  border-color: #eef3f7;
+}
+
+.ruleInfo { display:flex; flex-direction:column; gap:6px; }
+.ruleName { font-weight:600; }
+.rulePattern { font-size:13px; color:#475569; }
+
+.ruleMeta { text-align:right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+.prod {
+  font-size:12px;
+  background:#f8fafc;
+  color:#334155;
+  padding:4px 8px;
+  border-radius:999px;
+}
+
+/* small helpers */
+.matchBlock { min-width:120px; display:flex; flex-direction:column; gap:6px; }
+.matchTitle { font-size:12px; color:#64748b; }
+.matchItem { font-size:13px; color:#0f172a; }
+.empty, .emptySmall { color:#94a3b8; font-size:13px; }

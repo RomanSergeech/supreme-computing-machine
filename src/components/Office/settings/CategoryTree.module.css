@@ -1,0 +1,10 @@
+.tree { display:flex; flex-direction:column; gap:8px; }
+.node { display:block; }
+.nodeHeader { display:flex; align-items:center; gap:8px; }
+.toggle { width:24px; height:24px; border:none; background:transparent; cursor:pointer; color:#334155; }
+.nodeMain { display:flex; align-items:center; gap:8px; padding:6px; border-radius:8px; cursor:pointer; }
+.nodeMain:hover { background:#fafafa; }
+.name { font-weight:500; }
+.badge { width:12px; height:12px; border-radius:6px; margin-left:auto; border:1px solid rgba(0,0,0,0.06); }
+.prod { font-size:12px; color:#475569; background:#f8fafc; padding:2px 6px; border-radius:6px; margin-left:8px; }
+.children { padding-left:14px; margin-top:6px; display:flex; flex-direction:column; gap:6px; }

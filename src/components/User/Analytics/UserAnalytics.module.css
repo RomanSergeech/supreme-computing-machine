@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.cardInner {
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 640px) {
+  .cardTitle {
+    font-size: 1rem;
+  }
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressBarContainer {
+  width: 5rem;
+  height: 0.5rem;
+  background-color: #eee;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #4f46e5;
+  transition: transform 0.3s ease;
+}
+
+.activityStat {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.activityLabel {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.activityBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statsItem {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.statsValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.textGreen {
+  color: #16a34a;
+}
+
+.textBlue {
+  color: #2563eb;
+}
+
+.textPurple {
+  color: #7c3aed;
+}

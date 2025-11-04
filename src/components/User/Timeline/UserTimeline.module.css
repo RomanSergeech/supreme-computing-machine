@@ -1,0 +1,50 @@
+.container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.select {
+  margin-left: 0.5rem;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.timeline {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f4;
+  border-radius: 6px;
+}
+
+.placeholder {
+  color: #999;
+  font-size: 0.95rem;
+}

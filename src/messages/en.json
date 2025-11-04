@@ -1,0 +1,614 @@
+{
+  "common": {
+    "minutesOnly": "{minutes}m",
+    "hoursOnly": "{hours}h",
+    "hoursMinutes": "{hours}h {minutes}m",
+    "selectPeriod": "Select period",
+    "clear": "Clear",
+    "weekdays": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "months": {
+      "0": "January",
+      "1": "February",
+      "2": "March",
+      "3": "April",
+      "4": "May",
+      "5": "June",
+      "6": "July",
+      "7": "August",
+      "8": "September",
+      "9": "October",
+      "10": "November",
+      "11": "December"
+    }
+  },
+  "landing": {
+    "header": {
+      "logo": "Monitoring",
+      "login": "Log in",
+      "signup": "Start for free",
+      "language": "Language"
+    },
+    "hero": {
+      "title": "Boost Your Productivity with Smart Analytics",
+      "description": "Automatically track your work time, analyze activity, and improve efficiency with our intelligent monitoring system.",
+      "tryFree": "Try for free",
+      "seeDemo": "View demo",
+      "stats": {
+        "rating": "4.9/5 Rating",
+        "users": "10,000+ users"
+      },
+      "dashboardTitle": "Dashboard",
+      "stat1": "8h 32m",
+      "stat2": "85%",
+      "label1": "Today",
+      "label2": "Productivity"
+    },
+    "features": {
+      "title": "Powerful Features for Maximum Efficiency",
+      "description": "All tools needed for monitoring and productivity enhancement",
+      "feature1": {
+        "title": "Automatic Time Tracking",
+        "description": "Track time across apps and websites without manual input."
+      },
+      "feature2": {
+        "title": "Detailed Analytics",
+        "description": "In-depth reports with charts and graphs for work habit analysis."
+      },
+      "feature3": {
+        "title": "Team Management",
+        "description": "Monitor employee activity and optimize workflows."
+      },
+      "feature4": {
+        "title": "Data Security",
+        "description": "Your data protected with modern encryption methods."
+      }
+    },
+    "benefits": {
+      "title": "Why Choose Us",
+      "description": "Our platform helps thousands optimize workflows and achieve results",
+      "benefit1": "30% Productivity Increase",
+      "benefit2": "Automated Time Tracking",
+      "benefit3": "Detailed Activity Analytics",
+      "benefit4": "Team Project Management",
+      "benefit5": "Secure Data Storage",
+      "benefit6": "Tool Integrations",
+      "stats": {
+        "users": "Active Users",
+        "companies": "Trusting Companies",
+        "uptime": "Uptime",
+        "support": "Support"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "description": "Simple 3-step setup process",
+      "step1": {
+        "title": "Sign Up",
+        "description": "Create account in 30 seconds and get access."
+      },
+      "step2": {
+        "title": "Setup",
+        "description": "Install app and configure settings."
+      },
+      "step3": {
+        "title": "Analyze",
+        "description": "Get reports and boost productivity."
+      }
+    },
+    "cta": {
+      "title": "Ready to Boost Productivity?",
+      "description": "Join thousands of users",
+      "button": "Start free"
+    },
+    "Footer": {
+      "brand": {
+        "title": "Monitoring Panel",
+        "description": "Intelligent monitoring system for teams"
+      },
+      "links": {
+        "product": {
+          "title": "Product",
+          "items": {
+            "features": "Features",
+            "pricing": "Pricing",
+            "security": "Security"
+          }
+        },
+        "support": {
+          "title": "Support",
+          "items": {
+            "docs": "Documentation",
+            "help": "Help",
+            "contacts": "Contacts"
+          }
+        },
+        "company": {
+          "title": "Company",
+          "items": {
+            "about": "About",
+            "blog": "Blog",
+            "careers": "Careers"
+          }
+        }
+      },
+      "copyright": "All rights reserved"
+    }
+  },
+  "auth": {
+    "branding": "Monitoring",
+    "login": {
+      "title": "Log in",
+      "subtitle": "Enter your credentials",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submit": "Log In",
+      "noAccount": "No account?",
+      "hasAccount": "Log in"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create a new account",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPasswordLabel": "Confirm password",
+      "confirmPasswordPlaceholder": "Repeat password",
+      "agree": "I agree with the terms of use",
+      "terms": "terms of use",
+      "submit": "Register",
+      "hasAccount": "Already have an account?",
+      "noAccount": "Register"
+    }
+  },
+  "overview": {
+    "totalTime": "Total Time",
+    "timeChange": "+12% compared to yesterday",
+    "avgProductivity": "Average Productivity",
+    "activeEmployees": "Active Employees",
+    "currentlyActive": "Currently online",
+    "productiveTime": "Productive Time",
+    "productivePercentage": "Below average",
+    "topAppsTitle": "Top apps for the selected period",
+    "topSitesTitle": "Top sites for the selected period",
+    "productivityTitle": "Productivity",
+    "productiveActivity": "Productive activity",
+    "productive": "Productive",
+    "neutral": "Neutral",
+    "distracting": "Distracting",
+    "usersUsed": "{count} users",
+    "siteVisits": "{count} visits",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "sections": {
+    "sectionSystemUsers": "System users",
+    "sectionUsedApps": "Used Applications",
+    "sectionVisitedSites": "Visited Sites",
+    "sectionUsersActivity": "Users Activity",
+    "sectionUserWebsites": "Used Websites",
+    "sectionUserApps": "Used Applications"
+  },
+  "tableControls": {
+    "tableSearchUsers": "Search users...",
+    "filters": "Filters",
+    "export": "Export",
+    "apply": "Apply",
+    "reset": "Reset"
+  },
+  "UsersTable": {
+    "name": "Name",
+    "status": "Status",
+    "activeTime": "Active Time",
+    "productiveTime": "Productive Time",
+    "productivity": "Productivity",
+    "lastActivity": "Last Activity",
+    "online": "Online",
+    "idle": "Idle",
+    "offline": "Offline",
+    "activeTimeFrom": "Activity from:",
+    "activeTimeTo": "Activity to:",
+    "tableSearchUsers": "Search users...",
+    "deleteSelected": "Delete selected users",
+    "clearSelected":"Clear selected users",
+    "storage": "Used Storage"
+  },
+  "ApplicationsTable": {
+    "columns": {
+      "name": "Application",
+      "category": "Category",
+      "usageTime": "Usage Time",
+      "usagePercent": "Usage",
+      "sessions": "Sessions"
+    },
+    "categories": {
+      "productive": "Productive",
+      "neutral": "Neutral",
+      "distracting": "Distracting"
+    },
+    "searchPlaceholder": "Search applications...",
+    "filter": {
+      "category": "Category",
+      "minTime": "Time from (in minutes)"
+    }
+  },
+  "websitesTable": {
+    "columns": {
+      "website": "Website",
+      "category": "Category",
+      "timeSpent": "Time Spent",
+      "visits": "Visits",
+      "lastVisit": "Last Visit",
+      "productivity": "Productivity",
+      "usagePercent": "Usage"
+    },
+    "categories": {
+      "productive": "Productive",
+      "neutral": "Neutral",
+      "distracting": "Distracting"
+    },
+    "productivity": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "searchPlaceholder": "Search websites...",
+    "filter": {
+      "category": "Category",
+      "minTime": "Time from (in minutes)"
+    }
+  },
+  "officeUserTimeline": {
+    "totalTime": "Total time",
+    "categories": {
+      "productive": "Productive",
+      "neutral": "Neutral",
+      "distracting": "Distracting"
+    }
+  },
+  "settings": {
+    "general": {
+      "title": "General settings",
+      "options": {
+        "idleTimeout": {
+          "title": "Idle timeout (minutes)",
+          "description": "Time of user inactivity before the session is terminated (in minutes)."
+        },
+        "screenshotTimeout": {
+          "title": "Screenshot timeout (secs)",
+          "description": "Delay before taking a screenshot after the action starts (in seconds)."
+        },
+        "storagePeriod": {
+          "title": "Data storage (days)",
+          "description": "Period for which data is stored before being automatically deleted (in days)."
+        }
+      }
+    },
+    "categorization": {
+      "title": "Categorization rules",
+      "sites": "Sites",
+      "apps": "Applications",
+      "addRule": "Add rule"
+    },
+    "categories": {
+      "productive": "Productive",
+      "distracting": "Distracting",
+      "neutral": "Neutral"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "options": {
+        "windowTitles": {
+          "title": "Window titles",
+          "description": "Track active window titles"
+        },
+        "websiteURLs": {
+          "title": "Website URLs",
+          "description": "Save visited website addresses"
+        },
+        "incognito": {
+          "title": "Incognito mode",
+          "description": "Temporarily pause tracking"
+        }
+      }
+    }
+  },
+  "tabs": {
+    "overview": "Overview",
+    "users": "Users",
+    "applications": "Applications",
+    "websites": "Websites",
+    "timelines": "Timeline",
+    "settings": "Settings"
+  },
+  "OfficeHeader": {
+    "title": "Monitoring",
+    "today": "Today",
+    "user": "User"
+  },
+  "UserDropdown": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "profile": {
+    "back": "Back"
+  },
+  "profileTabs": {
+    "profile": "Profile",
+    "subscription": "Subscription",
+    "settings": "Settings"
+  },
+  "profileOverview": {
+    "title": "Profile Information",
+    "edit": "Edit",
+    "save": "Save",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "position": "Position",
+    "department": "Department",
+    "location": "Location",
+    "registeredAt": "Registered on: {date}"
+  },
+  "profileSubscription": {
+    "currentSubscription": "Current Subscription",
+    "plan": {
+      "corporate": "Corporate Plan",
+      "professional": "Professional Plan"
+    },
+    "status": {
+      "active": "Active",
+      "paid": "Paid",
+      "ended": "Ended"
+    },
+    "perYear": "per year",
+    "validUntil": "Valid until",
+    "daysLeft": "{days} days left",
+    "includedFeatures": "Included features:",
+    "features": [
+      "Unlimited users",
+      "Advanced analytics",
+      "Report export",
+      "Priority support",
+      "API access",
+      "Interface customization"
+    ],
+    "renew": "Renew subscription",
+    "changePlan": "Change plan",
+    "usage": {
+      "title": "Usage",
+      "users": "Users",
+      "storage": "Storage",
+      "api": "API requests",
+      "details": "Detailed statistics"
+    },
+    "paymentHistory": {
+      "title": "Payment History"
+    },
+    "changeplanmodal": {
+      "title": "Change Plan",
+      "selectPlan": "Select a plan",
+      "paymentMethods": "Payment Methods",
+      "sbp": "SBP — QR",
+      "addCard": "Add Card",
+      "pay": "Pay"
+    },
+    "renewsubscriptionmodal": {
+      "title": "Renew Subscription",
+      "price": "50,000 ₽ / year",
+      "paymentMethods": "Payment Methods",
+      "sbp": "SBP — QR",
+      "addCard": "Add Card",
+      "pay": "Pay"
+    },
+    "addcardmodal": {
+      "title": "Add Card",
+      "cardNumber": "Card Number",
+      "expiry": "Expiry Date",
+      "cvc": "CVC",
+      "setAsPrimary": "Set as primary payment method",
+      "cancel": "Cancel",
+      "save": "Save",
+      "errors": {
+        "cardNumber": "Enter a valid card number (16 digits)",
+        "expiry": "Enter expiry date in MM/YY format",
+        "cvc": "Enter CVC (3 digits)"
+      }
+    }
+  },
+  "profileSettings": {
+    "save": "Save settings",
+    "localization": {
+      "title": "Localization",
+      "language": "Interface language",
+      "timezone": "Time zone",
+      "dateFormat": "Date format",
+      "timeFormat": "Time format",
+      "ru": "🇷🇺 Russian",
+      "en": "🇺🇸 English",
+      "datePreview": "12/31/2024",
+      "time24": "24-hour (15:30)",
+      "time12": "12-hour (03:30 PM)"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "email": {
+        "label": "Email notifications",
+        "desc": "Receive updates by email"
+      },
+      "push": {
+        "label": "Push notifications",
+        "desc": "Browser push notifications"
+      },
+      "reports": {
+        "label": "Reports",
+        "desc": "Weekly performance reports"
+      },
+      "alerts": {
+        "label": "Alerts",
+        "desc": "Critical system alerts"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "changePassword": "Change password",
+      "setup2FA": "Set up 2FA",
+      "sessions": "Active sessions",
+      "currentSession": "Current session",
+      "sessionDesc": "Chrome on Windows • Moscow",
+      "active": "Active"
+    }
+  },
+  "categories": {
+    "title": "Rules",
+    "subtitle": "Manage rules for sites and programs — click a rule to edit.",
+    "searchPlaceholder": "Search rules or pattern...",
+    "addRule": "Add rule",
+    "sites": "Sites",
+    "programs": "Programs",
+    "noSiteRules": "No site rules",
+    "noProgramRules": "No program rules",
+    "deleteRuleConfirm": "Delete rule?",
+    "deleteCategoryConfirm": "Delete category?",
+    "editRule": "Edit rule",
+    "addRuleModalTitle": "Add rule",
+    "editCategories": "Edit categories",
+    "name": "Name",
+    "pattern": "Pattern (substring or regex)",
+    "patternPlaceholder": "e.g. youtube.com or ^.*youtube\\.com.*$",
+    "type": "Type",
+    "site": "Site",
+    "program": "Program",
+    "category": "Category",
+    "none": "— None —",
+    "productivityTitle": "Productivity",
+    "fillNameAndPattern": "Please fill name and pattern",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "close": "Close",
+    "save": "Save",
+    "categoriesTitle": "Categories",
+    "color": "Color",
+    "addChild": "Add child",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "pickSite": "Pick site",
+    "pickProgram": "Pick program",
+    "productivity": {
+      "productive": "Productive",
+      "neutral": "Neutral",
+      "distracting": "Distracting"
+    }
+  },
+  "userProfile": {
+    "back": "Back",
+    "status": {
+      "active": "Online",
+      "inactive": "Offline"
+    }
+  },
+  "userStats": {
+    "activeTimeToday": {
+      "label": "Today",
+      "sub": "Active time"
+    },
+    "productivityToday": {
+      "label": "Productivity",
+      "sub": "Today"
+    },
+    "weeklyTotal": {
+      "label": "Week",
+      "sub": "Goal — {goal}"
+    },
+    "sessions": {
+      "label": "Sessions",
+      "sub": "Total"
+    },
+    "idleTime": {
+      "label": "Idle time",
+      "sub": "Today"
+    }
+  },
+  "userTabs": {
+    "overview": "Overview",
+    "apps": "Apps",
+    "websites": "Websites",
+    "timeline": "Timeline",
+    "analytics": "Analytics"
+  },
+  "userOverview": {
+    "currentActivity": "Current Activity",
+    "activeNow": "Active now",
+    "lastWebsite": "Last visited site",
+    "lastActivity": "Last activity",
+    "timeBreakdown": "Time breakdown today",
+    "labels": {
+      "productive": "Productive",
+      "neutral": "Neutral",
+      "distracting": "Distracting",
+      "idle": "Idle"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "export": "Export"
+    }
+  },
+  "userWebsites": {
+    "site": "Website",
+    "category": "Category",
+    "totalTime": "Total Time",
+    "visits": "Visits",
+    "avgVisit": "Average Visit",
+    "lastVisit": "Last Visit",
+    "productive": "productive",
+    "distracting": "distracting",
+    "neutral": "neutral"
+  },
+  "userApps": {
+    "app": "App",
+    "category": "Category",
+    "totalTime": "Total Time",
+    "sessions": "Sessions",
+    "avgSession": "Avg. Session",
+    "lastUsed": "Last Used",
+    "productive": "productive",
+    "neutral": "neutral",
+    "distracting": "distracting"
+  },
+  "userAnalytics": {
+    "title": "Detailed Analytics",
+    "timeProductivity": "Productivity by Time of Day",
+    "activityDistribution": "Activity Distribution",
+    "compareWithTeam": "Comparison with Team",
+    "productivity": "Productivity",
+    "productiveApps": "Productive apps",
+    "neutralApps": "Neutral apps",
+    "distractingApps": "Distracting apps",
+    "betterThanAvg": "Above average productivity",
+    "avgDailyTime": "Average daily time",
+    "teamRank": "Team rank"
+  },
+  "userTimeline": {
+    "title": "Activity Timeline",
+    "selectDuration": "Show interval:",
+    "timelinePlaceholder": "Timeline will appear here soon",
+    "filterApps": "Filter by apps",
+    "productive": "Productive",
+    "neutral": "Neutral",
+    "distracting": "Distracting"
+  }
+}

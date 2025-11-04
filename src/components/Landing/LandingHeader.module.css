@@ -1,0 +1,180 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
+}
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 85, 104, 0.4);
+}
+
+.btnSecondary {
+  background: #fff;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+.btnSecondary:hover {
+  background: #f7fafc;
+  border-color: #4a5568;
+  transform: translateY(-1px);
+}
+
+.headerActionsGrid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "login lang"
+    "signup signup";
+  gap: 0.625rem;
+  align-items: center;
+  justify-content: end;
+}
+
+.loginCell {
+  grid-area: login;
+  display: inline-flex;
+  align-items: center;
+}
+
+.langCell {
+  grid-area: lang;
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+}
+
+.signupCell {
+  grid-area: signup;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+}
+
+.headerActionsGrid .btn {
+  width: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    border-radius: 7px;
+    gap: 0.45rem;
+  }
+  .headerActionsGrid {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    display: flex;
+    max-width: 260px;
+  }
+  .btn + .btn {
+    margin-top: 0.5rem;
+  }
+  .headerActionsGrid {
+    grid-template-columns: 80% 20%;
+    grid-template-areas:
+      "login lang"
+      "signup signup";
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .headerActionsGrid .loginCell {
+    justify-self: start;
+  }
+  .headerActionsGrid .langCell {
+    justify-self: end;
+  }
+  .headerActionsGrid .loginCell .btn,
+  .headerActionsGrid .langCell > * {
+    max-width: 48%;
+  }
+  .headerActionsGrid .signupCell {
+    grid-column: 1 / span 2;
+    width: 100%;
+    justify-content: center;
+  }
+  .headerActionsGrid .signupCell .btn {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+  }
+  .langCell {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    gap: 0.35rem;
+    max-width: 220px;
+  }
+  .headerActionsGrid {
+    gap: 0.375rem;
+  }
+  .headerActionsGrid .loginCell .btn,
+  .headerActionsGrid .langCell > * {
+    max-width: 46%;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.82rem;
+  }
+  .headerActionsGrid .signupCell .btn {
+    max-width: none;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.75rem;
+    line-height: 1.15;
+    gap: 0.3rem;
+    max-width: 200px;
+  }
+  .headerActionsGrid {
+    gap: 0.25rem;
+  }
+  .headerActionsGrid .loginCell .btn,
+  .headerActionsGrid .langCell > * {
+    max-width: 44%;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+  }
+  .headerActionsGrid .signupCell .btn {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .langCell > * {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}

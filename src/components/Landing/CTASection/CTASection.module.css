@@ -1,0 +1,78 @@
+.ctaSection {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: #fff;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ctaContent p {
+  font-size: 1.25rem;
+  opacity: .9;
+  margin-bottom: 2rem;
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .875rem;
+  text-decoration: none;
+  transition: all .2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPrimary {
+  background: #fff;
+  color: #4a5568;
+  box-shadow: 0 6px 20px rgba(74,85,104,.4);
+}
+    
+.btnPrimary:hover {
+  background: #f7fafc;
+  transform: translateY(-2px);
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.ctaNote {
+  font-size: .875rem;
+  opacity: .8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .ctaContent h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaSection {
+    padding: 3rem 0;
+  }
+  
+  .btnLarge {
+    padding: .875rem 1.5rem;
+    font-size: .875rem;
+  }
+}

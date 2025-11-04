@@ -1,0 +1,16 @@
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex: unset;
+    padding: 0;
+    max-width: none;
+    margin: 0;
+    width: 100%;
+  }
+}

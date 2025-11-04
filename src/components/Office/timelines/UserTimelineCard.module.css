@@ -1,0 +1,103 @@
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .1);
+  border-color: #a0aec0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  background-color: #4f46e5;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 0.875rem;
+}
+
+.username {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.totalTime {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.activitiesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activityItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activityInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon {
+  color: #334155;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.time {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.category {
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.productive {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.neutral {
+  background-color: #fef9c3;
+  color: #92400e;
+}
+
+.distracting {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}

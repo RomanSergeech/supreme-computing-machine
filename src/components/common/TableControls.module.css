@@ -1,0 +1,146 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.searchContainer {
+  flex: 1;
+  min-width: 200px;
+}
+
+.rowOnMobile {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  color: #718096;
+  pointer-events: none;
+}
+
+.searchInput {
+  padding: 0.5rem 0.75rem;
+  padding-left: 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: #fff;
+  width: 100%;
+  min-width: 200px;
+}
+
+.filterBtn,
+.exportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background-color: #f9fafb;
+  color: #1a202c;
+  cursor: pointer;
+}
+
+.filterBtn:hover,
+.exportBtn:hover {
+  background-color: #f1f5f9;
+}
+
+/* Мобильный адаптив */
+@media (max-width: 480px) {
+  .searchInputWrapper,
+  .searchInput {
+    width: 100%;
+  }
+
+  .rowOnMobile {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.filterDropdownWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filtersMenu {
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.filterField {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  flex: 1;
+}
+
+
+.filterField label {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.filterField input,
+.filterField select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.filterActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.applyBtn,
+.resetBtn {
+  padding: 6px 10px;
+  border: none;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.applyBtn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.resetBtn {
+  background-color: #f3f4f6;
+  color: #111827;
+}

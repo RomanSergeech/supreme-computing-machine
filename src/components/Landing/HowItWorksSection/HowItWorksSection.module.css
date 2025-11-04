@@ -1,0 +1,92 @@
+.howItWorksSection {
+  padding: 6rem 0;
+  background: #fff;
+}
+
+.container {
+  color: #2d3748;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  color: #2d3748;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionHeader h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.sectionHeader p {
+    font-size: 1.5rem;
+    color: #718096;
+    max-width: 600px;
+    margin-bottom: 1rem;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.stepCard {
+  text-align: center;
+  padding: 2rem;
+}
+
+.stepNumber {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 12px rgba(74, 85, 104, .3);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stepContent h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.stepContent p {
+  color: #718096;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .howItWorksSection {
+    padding: 3rem 0;
+  }
+
+  .stepCard {
+    padding: 1.5rem;
+  }
+}

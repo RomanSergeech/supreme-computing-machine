@@ -1,0 +1,121 @@
+/* ==== Основная структура ==== */
+
+.leftBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3f4244d5;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+}
+
+.backButton:hover {
+  color: #1b2f36;
+}
+
+.rightBlock {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #7f8c8d;
+  font-weight: 500;
+  gap: 6px;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.active {
+  background-color: #27ae60;
+}
+
+.inactive {
+  background-color: #bdc3c7;
+}
+
+.employeeInfo {
+  font-size: 14px;
+  color: #34495e;
+}
+
+/* ==== Планшеты (≤1024px) ==== */
+@media (max-width: 1024px) {
+  .rightBlock {
+    gap: 12px;
+  }
+
+  .backButton {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+
+  .status {
+    font-size: 13px;
+  }
+
+  .employeeInfo {
+    font-size: 13px;
+  }
+}
+
+/* ==== Мобильные (≤768px) ==== */
+@media (max-width: 768px) {
+  .leftBlock {
+    gap: 8px;
+  }
+
+  .backButton {
+    font-size: 0;
+    padding: 0;
+  }
+
+  .backButton::before {
+    content: "←";
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f4244d5;
+  }
+
+  .rightBlock {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .status {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .statusDot {
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+  }
+
+  .employeeInfo {
+    font-size: 12px;
+  }
+
+  .dateRangeDropdown {
+    width: 100%;
+  }
+}

@@ -1,0 +1,55 @@
+/* ==== Основная структура ==== */
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.role {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ==== Планшеты (≤1024px) ==== */
+@media (max-width: 1024px) {
+  .avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+}
+
+/* ==== Мобильные (≤768px) ==== */
+@media (max-width: 768px) {
+  .textBlock {
+    display: none;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+}

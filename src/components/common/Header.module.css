@@ -1,0 +1,152 @@
+.CommonHeader {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: hsla(0, 0%, 100%, .95);
+}
+
+.container {
+  color: #2d3748;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.headerContent {
+  color: #2d3748;
+  line-height: 1.5;
+  font-family: -apple-system, sans-serif;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(74, 85, 104, .3);
+}
+
+.logoTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: .875rem;
+  text-decoration: none;
+  transition: all .2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(74, 85, 104, .3);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 85, 104, .4);
+}
+
+.btnSecondary {
+  background: #fff;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.btnSecondary:hover {
+  background: #f7fafc;
+  border-color: #4a5568;
+  transform: translateY(-1px);
+}
+
+.leftContent {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+
+  .logoTitle {
+    font-size: 1.25rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+
+
+  .logoSection {
+    justify-content: center;
+  }
+
+ .btnPrimary {
+    display: none;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .leftContent{
+    margin-right: 0 ;
+  }
+  .container {
+    padding: 0 1rem;
+    gap: 0.5rem
+  }
+
+  .btnSecondary{
+    padding: 0.5rem 0.75rem;
+  }
+
+  .logoTitle {
+    font-size: 1.1rem;
+  }
+
+}

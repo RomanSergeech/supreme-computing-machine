@@ -1,0 +1,20 @@
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 100px;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 4px;
+}
