@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
     if ( user.u_id === '' ) {
       router.push('/')
     }
-  }, [user])
+  }, [user, router])
 
   if ( !user.u_id ) {
     return <></>

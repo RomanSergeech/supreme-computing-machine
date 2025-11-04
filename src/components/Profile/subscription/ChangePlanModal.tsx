@@ -75,6 +75,7 @@ export default function ChangePlanModal({ onClose }: ChangePlanModalProps) {
         ))} */}
         {Object.values(payment_services).map((el, i) => (
           <div
+            key={i}
             className={`${styles.method} ${paymentMethod === i+1 ? styles.active : ''}`}
             onClick={() => setPaymentMethod(i+1)}
           >

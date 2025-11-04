@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import styles from './UserDropdown.module.css';
 import { TUser } from '@/shared/types/user.types'
 import { useAuthStore } from '@/shared/store/auth.store'
+import Image from 'next/image'
 
 export default function UserDropdown({ user }: { user: TUser }) {
 
@@ -29,7 +30,7 @@ export default function UserDropdown({ user }: { user: TUser }) {
       <button onClick={() => setOpen(!open)} className={styles.avatarButton}>
         <div className={styles.avatarCircle}>
           {user.u_photo ? (
-            <img src={user.u_photo} alt="avatar" />
+            <Image src={user.u_photo} alt="avatar" />
           ) : (
             user.u_name
           )}

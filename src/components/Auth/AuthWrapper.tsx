@@ -20,7 +20,7 @@ const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
     useStaticStore.getState().getSiteStatic()
 
-  }, [])
+  }, [router])
 
   return children
 }

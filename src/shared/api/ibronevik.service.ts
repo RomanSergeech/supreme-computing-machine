@@ -96,4 +96,6 @@ class ApiService {
 
 }
 
-export default new ApiService()
+const Servise = new ApiService()
+
+export default Servise

@@ -45,7 +45,7 @@ export default function RegistrationPage() {
         router.push('/login')
       })
       .catch(err => showAlert({
-        text: [err.message] || ['Error'],
+        text: err.message ? [err.message] : ['Error'],
         textBtn: 'Close'
       }, 3000))
   };

@@ -33,7 +33,7 @@ export default function LoginPage() {
         router.push('/office')
       })
       .catch(err => showAlert({
-        text: [err.message] || ['Error'],
+        text: err.message ? [err.message] : ['Error'],
         textBtn: 'Close'
       }, 3000))
   };

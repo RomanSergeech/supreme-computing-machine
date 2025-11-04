@@ -60,6 +60,7 @@ export default function RenewSubscriptionModal({ subscription, onClose }: RenewS
         ))} */}
         {Object.values(payment_services).map((el, i) => (
           <div
+            key={i}
             className={`${styles.method} ${paymentMethod === i+1 ? styles.active : ''}`}
             onClick={() => setPaymentMethod(i+1)}
           >
