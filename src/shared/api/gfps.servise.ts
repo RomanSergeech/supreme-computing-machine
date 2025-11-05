@@ -28,7 +28,20 @@ const checkError = <T>( res: AxiosResponse<T> ): AxiosResponse<T> => {
 class ApiService {
 
   async getManagerWorkers({ team_id }: TGetManagerWorkersRequest) {
-    return checkError(await $api.post<TGetManagerWorkersResponse>('/manager/workers', {
+    return await fetch('/api/1', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+    return checkError(await axios.post<TGetManagerWorkersResponse>('/api/1', {
       token: localStorage.getItem('token'),
       u_hash: localStorage.getItem('u_hash'),
       data: JSON.stringify({
