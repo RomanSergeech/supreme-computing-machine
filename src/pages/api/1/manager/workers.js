@@ -1,18 +1,19 @@
+import { DOMAIN, Endpoints } from "@/shared/config/api.config"
 
-const API_URL = 'http://188.225.44.153:5700/api/1/manager/workers'
+const API_URL = DOMAIN + Endpoints.workers
 
 export default async (req, res) => {
-  console.log(req);
   try {
+      const formData = new URLSearchParams(req.body);
+
       const response = await fetch(API_URL, {
           method: req.method,
           headers: {
-              ...req.headers,
-              'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: req.method === 'POST' ? JSON.stringify(req.body) : null,
+          body: formData.toString(),
       });
-      
+
       if (!response.ok) {
           console.error(`Error fetching from backend: ${response.statusText}`);
           return res.status(response.status).json({ error: 'Failed to fetch from backend' });

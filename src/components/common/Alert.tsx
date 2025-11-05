@@ -26,7 +26,7 @@ const Alert = () => {
       store.onClickAction()
    }
 
-	return ReactDOM.createPortal(
+	return (
 
 		<div className={classNames(c.alert, elClass)} >
 
@@ -45,8 +45,7 @@ const Alert = () => {
 			}
       
 		</div>
-
-	, document?.body)
+  )
 }
 
 export { Alert }

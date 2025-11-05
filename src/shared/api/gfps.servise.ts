@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 import { TGetManagerBucketsEventsRequest, TGetManagerBucketsEventsResponse, TgetManagerBucketsRequest, TGetManagerBucketsResponse, TGetManagerWorkersRequest, TGetManagerWorkersResponse } from "../types/api.types"
 
-const API_URL = 'http://188.225.44.153:5700/api/1'
+const API_URL = '/api/1'
 
 const $api = axios.create({
   baseURL: API_URL,
@@ -28,20 +28,7 @@ const checkError = <T>( res: AxiosResponse<T> ): AxiosResponse<T> => {
 class ApiService {
 
   async getManagerWorkers({ team_id }: TGetManagerWorkersRequest) {
-    return await fetch('/api/1', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-    return checkError(await axios.post<TGetManagerWorkersResponse>('/api/1', {
+    return checkError(await $api.post<TGetManagerWorkersResponse>('/manager/workers', {
       token: localStorage.getItem('token'),
       u_hash: localStorage.getItem('u_hash'),
       data: JSON.stringify({
@@ -62,7 +49,7 @@ class ApiService {
   }
 
   async getManagerBucketsEvents({ buckets, start, end, limit }: TGetManagerBucketsEventsRequest) {
-    return checkError(await $api.post<TGetManagerBucketsEventsResponse>('/manager/buckets/events', {
+    return checkError(await $api.post<TGetManagerBucketsEventsResponse>('/manager/events', {
       token: localStorage.getItem('token'),
       u_hash: localStorage.getItem('u_hash'),
       data: JSON.stringify({
