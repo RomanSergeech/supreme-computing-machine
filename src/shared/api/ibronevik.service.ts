@@ -36,7 +36,7 @@ class ApiService {
   }
 
   async token( auth_hash: string ) {
-    return checkError(await $api.post('/token/authorized', { auth_hash }))
+    return checkError(await $api.post('/token', { auth_hash }))
   }
 
   async getSiteStatic() {
@@ -53,7 +53,6 @@ class ApiService {
   async editUser( sendData: Partial<TUser>, u_id?: string ) {
     let req = '/user'
     if ( u_id ) req += `/${u_id}`
-
     return checkError<TEditUserResponse>(await $api.post(req, {
       data: JSON.stringify(sendData),
       token: localStorage.getItem('token'),
