@@ -23,6 +23,7 @@ export default function OverviewContent() {
   const averageNeutral = useOfficeStore(state => state.averageNeutral)
   const topApps = useOfficeStore(state => state.topApps)
   const topSites = useOfficeStore(state => state.topSites)
+  const workersOnline = useOfficeStore(state => state.workersOnline)
 
   const t = useTranslations('overview');
   const formatDuration = useFormatDuration();
@@ -70,7 +71,7 @@ export default function OverviewContent() {
         </svg>
       ),
       title: t('activeEmployees'),
-      value: '0',
+      value: workersOnline,
       change: t('currentlyActive'),
       positive: null
     },

@@ -5,9 +5,15 @@ import UsersControls from '@/components/Office/users/UsersControls';
 import SectionContainer from '@/components/Office/SectionContainer';
 import UsersTable from '@/components/Office/users/UsersTable';
 
+export type TFilters = {
+  status: string
+  timeFrom: string | null
+  timeTo: string | null
+}
+
 export default function UsersPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filters, setFilters] = useState({ status: '', timeFrom: null, timeTo: null });
+  const [filters, setFilters] = useState<TFilters>({ status: '', timeFrom: null, timeTo: null });
 
   return (
     <main>

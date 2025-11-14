@@ -4,14 +4,23 @@ import { useState } from 'react';
 import styles from './TableControls.module.css';
 import { useTranslations } from 'next-intl';
 
+
+interface Props {
+  search?: any
+  filters?: any[]
+  showFilters?: any
+  showExport?: any
+  onApplyFilters?: any
+  onResetFilters?: any
+}
 export default function TableControls({
   search,
-  showFilters = true,
-  showExport = true,
+  showFilters = false,
+  showExport = false,
   filters = [],
   onApplyFilters,
   onResetFilters,
-}) {
+}: Props) {
   const t = useTranslations('tableControls');
   const hasSearch = search !== null && typeof search === 'object';
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -107,7 +116,7 @@ export default function TableControls({
                   onChange={(e) => filter.onChange?.(e.target.value)}
                 >
                   <option value="">—</option>
-                  {filter.options?.map((opt) => (
+                  {filter.options?.map((opt: { value: string, label: string }) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
                     </option>

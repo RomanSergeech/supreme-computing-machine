@@ -40,5 +40,6 @@ export type TEventDocument = {
     app?: string
     title: string
     url: string
+    status?: string
   }
 }

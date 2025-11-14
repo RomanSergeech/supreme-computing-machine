@@ -7,8 +7,13 @@ import { useTranslations } from 'next-intl';
 import { useFormatDuration } from '@/shared/utils/useFormatDuration';
 import ProgressBar from '@/components/common/ProgressBar';
 import CategoryLabel from '@/components/common/CategoryLabel';
+import { TActivitySummary, TWorkerStats } from '@/shared/types/office.types'
 
-export default function ApplicationsTable({ users = [], initialData = [] }) {
+interface Props {
+  user: TWorkerStats
+}
+export default function ApplicationsTable({ user }: Props) {
+
   const t = useTranslations('ApplicationsTable');
   const formatDuration = useFormatDuration();
 
@@ -27,14 +32,7 @@ export default function ApplicationsTable({ users = [], initialData = [] }) {
     { key: 'sessions', label: t('columns.sessions') },
   ];
 
-  const rawData = useMemo(() => [
-    { name: 'Visual Studio Code', category: 'productive', usageMinutes: 225, usagePercent: 44, sessions: 8 },
-    { name: 'Google Chrome', category: 'distracting', usageMinutes: 132, usagePercent: 25, sessions: 12 },
-    { name: 'Slack', category: 'neutral', usageMinutes: 83, usagePercent: 16, sessions: 6 },
-    { name: 'Notion', category: 'productive', usageMinutes: 45, usagePercent: 9, sessions: 3 },
-    { name: 'Spotify', category: 'distracting', usageMinutes: 32, usagePercent: 6, sessions: 2 },
-    { name: 'Excel', category: 'productive', usageMinutes: 28, usagePercent: 5, sessions: 1 },
-  ], []);
+  const rawData = useMemo(() => user?.appsActivity || [], [user?.appsActivity]);
 
   const categories = [
     { value: 'productive', label: t('categories.productive') },
@@ -43,17 +41,17 @@ export default function ApplicationsTable({ users = [], initialData = [] }) {
   ];
 
   const filteredData = useMemo(() => {
-    return rawData.filter((row) => {
+    return rawData?.filter((row) => {
       const matchesSearch = row.name.toLowerCase().includes(draftSearch.toLowerCase());
-      const matchesCategory = selectedCategory ? row.category === selectedCategory : true;
-      const matchesMinTime = minTime ? row.usageMinutes >= Number(minTime) : true;
+      const matchesCategory = selectedCategory ? row.productivity === selectedCategory : true;
+      const matchesMinTime = minTime ? Math.round(row.duration / 60) >= Number(minTime) : true;
       return matchesSearch && matchesCategory && matchesMinTime;
     });
   }, [draftSearch, selectedCategory, minTime]);
 
-  const renderCell = (key, value, row) => {
-    if (key === 'category') return <CategoryLabel category={value} />;
-    if (key === 'usageTime') return formatDuration(row.usageMinutes);
+  const renderCell = (key: string, value: any, row: TActivitySummary) => {
+    if (key === 'category') return <CategoryLabel category={row.productivity} />;
+    if (key === 'usageTime') return formatDuration(Math.round(row.duration / 60));
     if (key === 'usagePercent') return <ProgressBar percent={row.usagePercent} />;
     return value;
   };
@@ -61,24 +59,24 @@ export default function ApplicationsTable({ users = [], initialData = [] }) {
   return (
     <div>
       <TableControls
-        search={{ value: draftSearch, onChange: setDraftSearch,placeholder: t('searchPlaceholder', { defaultValue: 'Search websites...' }) }}
-        filters={[
-          {
-            key: 'category',
-            label: t('filter.category'),
-            type: 'select',
-            value: draftCategory,
-            onChange: setDraftCategory,
-            options: categories
-          },
-          {
-            key: 'minTime',
-            label: t('filter.minTime'),
-            type: 'number',
-            value: draftMinTime,
-            onChange: setDraftMinTime
-          }
-        ]}
+        // search={{ value: draftSearch, onChange: setDraftSearch,placeholder: t('searchPlaceholder', { defaultValue: 'Search websites...' }) }}
+        // filters={[
+        //   {
+        //     key: 'category',
+        //     label: t('filter.category'),
+        //     type: 'select',
+        //     value: draftCategory,
+        //     onChange: setDraftCategory,
+        //     options: categories
+        //   },
+        //   {
+        //     key: 'minTime',
+        //     label: t('filter.minTime'),
+        //     type: 'number',
+        //     value: draftMinTime,
+        //     onChange: setDraftMinTime
+        //   }
+        // ]}
         onApplyFilters={() => {
           setSelectedCategory(draftCategory);
           setMinTime(draftMinTime);
@@ -90,9 +88,13 @@ export default function ApplicationsTable({ users = [], initialData = [] }) {
           setSelectedCategory('');
           setMinTime('');
         }}
-        showExport={true}
+        // showExport={true}
       />
-      <Table columns={columns} data={filteredData} renderCell={renderCell} />
+      <Table
+        columns={columns}
+        data={filteredData}
+        renderCell={renderCell}
+      />
     </div>
   );
 }

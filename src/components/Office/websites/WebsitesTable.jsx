@@ -51,7 +51,7 @@ export default function WebsitesTable() {
   ];
 
   const renderCell = (key, value, row) => {
-    if (key === 'category') return <CategoryLabel category={value} />;
+    if (key === 'category') return value;
     if (key === 'timeSpent') return formatDuration(row.usageMinutes);
     if (key === 'usagePercent') return <ProgressBar percent={row.usagePercent} />;
     return value;
@@ -60,24 +60,24 @@ export default function WebsitesTable() {
   return (
     <div>
       <TableControls
-        search={{ value: draftSearch, onChange: setDraftSearch }}
-        filters={[
-          {
-            key: 'category',
-            label: t('filter.category'),
-            type: 'select',
-            value: draftCategory,
-            onChange: setDraftCategory,
-            options: categories
-          },
-          {
-            key: 'minTime',
-            label: t('filter.minTime'),
-            type: 'number',
-            value: draftMinTime,
-            onChange: setDraftMinTime
-          }
-        ]}
+        // search={{ value: draftSearch, onChange: setDraftSearch }}
+        // filters={[
+        //   {
+        //     key: 'category',
+        //     label: t('filter.category'),
+        //     type: 'select',
+        //     value: draftCategory,
+        //     onChange: setDraftCategory,
+        //     options: categories
+        //   },
+        //   {
+        //     key: 'minTime',
+        //     label: t('filter.minTime'),
+        //     type: 'number',
+        //     value: draftMinTime,
+        //     onChange: setDraftMinTime
+        //   }
+        // ]}
         onApplyFilters={() => {
           setSearch(draftSearch);
           setSelectedCategory(draftCategory);

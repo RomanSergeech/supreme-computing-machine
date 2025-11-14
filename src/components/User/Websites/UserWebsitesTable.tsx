@@ -7,6 +7,7 @@ import TableControls from '@/components/common/TableControls';
 import { useFormatDuration } from '@/shared/utils/useFormatDuration';
 import ProgressBar from '../../common/ProgressBar';
 import CategoryLabel from '../../common/CategoryLabel';
+import { TActivitySummary, TWorkerStats } from '@/shared/types/office.types'
 
 const rawData = [
   { website: 'github.com', category: "productive", usageMinutes: 135, visits: 23, lastVisit: '5 minutes ago', productivity: 'high', usagePercent: 70 },
@@ -15,7 +16,11 @@ const rawData = [
   { website: 'twitter.com', category: "distracting", usageMinutes: 28, visits: 12, lastVisit: '30 minutes ago', productivity: 'low', usagePercent: 66 },
 ];
 
-export default function WebsitesTable() {
+
+interface Props {
+  user: TWorkerStats
+}
+export default function WebsitesTable({ user }: Props) {
   const t = useTranslations('websitesTable');
   const formatDuration = useFormatDuration();
 
@@ -34,13 +39,13 @@ export default function WebsitesTable() {
   ];
 
   const filteredData = useMemo(() => {
-    return rawData.filter((item) => {
-      const matchesSearch = item.website.toLowerCase().includes(draftSearch.toLowerCase());
-      const matchesCategory = selectedCategory ? item.category === selectedCategory : true;
-      const matchesMinTime = minTime ? item.usageMinutes >= Number(minTime) : true;
+    return user.sitesActivity?.filter((item) => {
+      const matchesSearch = item.name.toLowerCase().includes(draftSearch.toLowerCase());
+      const matchesCategory = selectedCategory ? item.productivity === selectedCategory : true;
+      const matchesMinTime = minTime ? Math.round(item.duration / 60) >= Number(minTime) : true;
       return matchesSearch && matchesCategory && matchesMinTime;
     });
-  }, [draftSearch, selectedCategory, minTime]);
+  }, [user.sitesActivity, draftSearch, selectedCategory, minTime]);
 
 
   const columns = [
@@ -51,10 +56,12 @@ export default function WebsitesTable() {
     { key: 'visits', label: t('columns.visits') },
   ];
 
-  const renderCell = (key, value, row) => {
-    if (key === 'category') return <CategoryLabel category={value} />;
-    if (key === 'timeSpent') return formatDuration(row.usageMinutes);
+  const renderCell = (key: string, value: any, row: TActivitySummary) => {
+    if (key === 'website') return row.name;
+    if (key === 'category') return <CategoryLabel category={row.productivity || 'neutral'} />;
+    if (key === 'timeSpent') return formatDuration(Math.round(row.duration / 60));
     if (key === 'usagePercent') return <ProgressBar percent={row.usagePercent} />;
+    if (key === 'visits') return row.sessions;
     return value;
   };
 

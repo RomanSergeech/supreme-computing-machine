@@ -1,36 +1,43 @@
 'use client';
 
+import { TWorkerStats } from '@/shared/types/office.types'
 import styles from './UserAnalytics.module.css';
 import { useTranslations } from 'next-intl';
+import { useFormatDuration } from '@/shared/utils'
 
-export default function UserAnalytics() {
+
+const timeSlots = ['09:00 - 12:00', '12:00 - 15:00', '15:00 - 18:00']
+
+
+interface Props {
+  user: TWorkerStats
+}
+export default function UserAnalytics({ user }: Props) {
   const t = useTranslations('userAnalytics');
 
-  const productivityByTime = [
-    { time: '09:00 - 12:00', percent: 85 },
-    { time: '12:00 - 15:00', percent: 65 },
-    { time: '15:00 - 18:00', percent: 78 },
-  ];
+  const formatDuration = useFormatDuration();
+
+  const productivityByTime = timeSlots.map(el => user.productivityByTimeSlots?.find(slot => slot.timeSlot === el))
 
   const appUsage = [
-    { label: t('productiveApps'), time: '6ч 0м' },
-    { label: t('neutralApps'), time: '1ч 30м' },
-    { label: t('distractingApps'), time: '30м' },
+    { label: t('productiveApps'), time: formatDuration(Math.round(user.totalDurationByProductivityForApps?.productive || 0)) },
+    { label: t('neutralApps'), time: formatDuration(Math.round(user.totalDurationByProductivityForApps?.neutral || 0)) },
+    { label: t('distractingApps'), time: formatDuration(Math.round(user.totalDurationByProductivityForApps?.distracting || 0)) },
   ];
 
   const teamStats = [
     {
-      value: '+15%',
+      value: (user.teamProductivityOverview?.percent || 0)+'%',
       label: t('betterThanAvg'),
       color: styles.textGreen,
     },
     {
-      value: '8ч 0м',
+      value: formatDuration(user.teamProductivityOverview?.duration || 0),
       label: t('avgDailyTime'),
       color: styles.textBlue,
     },
     {
-      value: '3-е',
+      value: (user.teamProductivityOverview?.top || 0)+'-е',
       label: t('teamRank'),
       color: styles.textPurple,
     },
@@ -47,17 +54,17 @@ export default function UserAnalytics() {
           </div>
           <div className={styles.cardInner}>
             <div className="space-y-3">
-              {productivityByTime.map(({ time, percent }) => (
-                <div key={time} className={styles.progressRow}>
-                  <span className="text-sm">{time}</span>
+              {productivityByTime.map(el => (
+                <div key={el?.timeSlot} className={styles.progressRow}>
+                  <span className="text-sm">{el?.timeSlot}</span>
                   <div className="flex items-center space-x-2">
                     <div className={styles.progressBarContainer}>
                       <div
                         className={styles.progressBarFill}
-                        style={{ transform: `translateX(-${100 - percent}%)` }}
+                        style={{ transform: `translateX(-${100 - (el?.productivity.productive || 100)}%)` }}
                       />
                     </div>
-                    <span className="text-sm font-medium">{percent}%</span>
+                    <span className="text-sm font-medium">{(el?.productivity.productive || 0)}%</span>
                   </div>
                 </div>
               ))}
@@ -72,7 +79,7 @@ export default function UserAnalytics() {
           <div className={styles.cardInner}>
             <div className="space-y-4">
               <div className="text-center">
-                <div className={styles.activityStat}>75%</div>
+                <div className={styles.activityStat}>{user.productivity}%</div>
                 <div className={styles.activityLabel}>{t('productivity')}</div>
               </div>
               <div className={styles.activityBreakdown}>

@@ -1,12 +1,13 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { ReactNode, useEffect } from "react"
 import { useUserStore } from "@/shared/store/user.store"
 import { useStaticStore } from "@/shared/store/static.store"
 
 const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
+  const pathname = usePathname()
   const router = useRouter()
 
   useEffect(() => {
@@ -14,7 +15,9 @@ const AuthWrapper = ({ children }: { children: ReactNode }) => {
     if ( token ) {
       useUserStore.getState().getUser()
         .then(() => {
-          router.push('/office')
+          if ( pathname === '/' ) {
+            router.push('/office')
+          }
         })
     }
 

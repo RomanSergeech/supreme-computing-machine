@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl';
 import { useFormatDuration } from '@/shared/utils/useFormatDuration';
 import styles from './UserStats.module.css';
+import { useOfficeStore } from '@/shared/store/office.store'
+import { TWorkerStats } from '@/shared/types/office.types'
 
 const mockStats = [
   {
@@ -62,7 +64,11 @@ const statIcons = {
   ),
 };
 
-export default function UserStats() {
+interface Props {
+  user: TWorkerStats
+}
+export default function UserStats({ user }: Props) {
+
   const t = useTranslations('userStats');
   const formatDuration = useFormatDuration();
 
@@ -75,30 +81,30 @@ export default function UserStats() {
 
         switch (stat.type) {
           case 'activeTimeToday':
-            value = formatDuration(stat.minutes);
+            value = formatDuration(user.activityToday);
             sub = t('activeTimeToday.sub');
             break;
 
           case 'productivityToday':
-            value = `${stat.percent}%`;
+            value = `${user.productivePercent}%`;
             sub = t('productivityToday.sub');
             valueClass = styles.yellow;
             break;
 
           case 'weeklyTotal':
-            value = formatDuration(stat.minutes);
+            value = formatDuration(user.activityByWeek);
             sub = t('weeklyTotal.sub', {
               goal: formatDuration(stat.goalMinutes),
             });
             break;
 
           case 'sessions':
-            value = `${stat.count}`;
+            value = `${0}`;
             sub = t('sessions.sub');
             break;
 
           case 'idleTime':
-            value = formatDuration(stat.minutes);
+            value = formatDuration(user.afk);
             sub = t('idleTime.sub');
             break;
 
@@ -110,7 +116,7 @@ export default function UserStats() {
           <div key={idx} className={styles.card}>
             <div className={styles.header}>
               <div className={styles.label}>{t(`${stat.type}.label`)}</div>
-              <div className={styles.icon}>{statIcons[stat.type]}</div>
+              {/* <div className={styles.icon}>{statIcons[stat.type]}</div> */}
             </div>
             <div className={styles.body}>
               <div className={`${styles.value} ${valueClass}`}>{value}</div>

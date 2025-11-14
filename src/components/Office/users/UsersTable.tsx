@@ -6,72 +6,40 @@ import styles from './UsersTable.module.css';
 import Table from '@/components/common/Table';
 import { useState } from 'react';
 import { useFormatDuration } from '@/shared/utils/useFormatDuration';
+import { useOfficeStore } from '@/shared/store/office.store'
+import { TFilters } from './UsersPage'
+import { TWorkerStats } from '@/shared/types/office.types'
 
-export default function UsersTable({ searchQuery = '', filters = {} }) {
+export default function UsersTable({ searchQuery = '', filters }: { searchQuery: string, filters: TFilters }) {
+
+  const users = useOfficeStore(state => state.users)
+
+  const [selectedUsers, setSelectedUsers] = useState<number[]>([])
+
   const t = useTranslations('UsersTable');
+
   const router = useRouter();
   const formatDuration = useFormatDuration();
 
-  const [selectedUsers, setSelectedUsers] = useState([]);
-
-  const [data] = useState([
-    {
-      id: '1',
-      name: 'Алексей Иванов',
-      email: 'alexey@example.com',
-      initials: 'АИ',
-      status: 'Online',
-      activeMinutes: 465,
-      productivePercent: 60,
-      productivity: 74,
-      lastActivity: '21:27:10',
-      storageGB: 2.5,
-    },
-    {
-      id: '2',
-      name: 'Мария Петрова',
-      email: 'maria@example.com',
-      initials: 'МП',
-      status: 'Idle',
-      activeMinutes: 372,
-      productivePercent: 60,
-      productivity: 74,
-      lastActivity: '21:27:10',
-      storageGB: 5.8,
-    },
-    {
-      id: '3',
-      name: 'Дмитрий Сидоров',
-      email: 'dmitry@example.com',
-      initials: 'ДС',
-      status: 'Offline',
-      activeMinutes: 273,
-      productivePercent: 60,
-      productivity: 74,
-      lastActivity: '21:27:10',
-      storageGB: 1.2,
-    },
-  ]);
-
-  const filteredData = data.filter((row) => {
+  const filteredData = users.filter((row) => {
     const matchesSearch = row.name.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesStatus =
       !filters.status || row.status === filters.status;
 
     const matchesTimeFrom =
-      filters.timeFrom === null || row.activeMinutes >= filters.timeFrom;
+      filters.timeFrom === null || row.lastActivityTime.toLocaleDateString() >= filters.timeFrom;
 
     const matchesTimeTo =
-      filters.timeTo === null || row.activeMinutes <= filters.timeTo;
+      filters.timeTo === null || row.lastActivityTime.toLocaleDateString() <= filters.timeTo;
 
     return matchesSearch && matchesStatus && matchesTimeFrom && matchesTimeTo;
   });
 
-  const toggleSelect = (id) => {
-    setSelectedUsers((prev) =>
+  const toggleSelect = ( id: number ) => {
+    setSelectedUsers(prev =>
       prev.includes(id) ? prev.filter((uid) => uid !== id) : [...prev, id]
-    );
+    )
   };
 
   const selectAll = () => {
@@ -97,13 +65,11 @@ export default function UsersTable({ searchQuery = '', filters = {} }) {
     { key: 'name', label: t('name') },
     { key: 'status', label: t('status') },
     { key: 'activeTime', label: t('activeTime') },
-    { key: 'productivePercent', label: t('productiveTime') },
     { key: 'productivity', label: t('productivity') },
-    { key: 'storageGB', label: t('storage') }, // новая колонка
     { key: 'lastActivity', label: t('lastActivity') },
   ];
 
-  const renderCell = (key, value, row) => {
+  const renderCell = ( key: string, value: string|number|React.ReactElement, row: TWorkerStats ) => {
     if (key === 'select') {
       return (
         <div onClick={(e) => e.stopPropagation()}>
@@ -115,51 +81,32 @@ export default function UsersTable({ searchQuery = '', filters = {} }) {
         </div>
       );
     }
-
-
     if (key === 'name') {
       return (
         <div className={styles.userInfo}>
-          <div className={styles.userAvatar}>{row.initials}</div>
+          {/* <div className={styles.userAvatar}>{row.name}</div> */}
           <div className={styles.userText}>
             <span>{row.name}</span>
-            <span className={styles.userEmail}>{row.email}</span>
           </div>
         </div>
       );
     }
-
     if (key === 'status') {
       const statusClass = {
         Online: styles.statusOnline,
         Idle: styles.statusIdle,
         Offline: styles.statusOffline,
-      }[value] || '';
-
+      }[value as string] || '';
       const localizedStatus = {
         Online: t('online'),
         Idle: t('idle'),
         Offline: t('offline'),
-      }[value] || value;
+      }[value as string] || value;
       return <span className={`${styles.status} ${statusClass}`}>{localizedStatus}</span>;
     }
-
     if (key === 'activeTime') {
-      return formatDuration(row.activeMinutes);
+      return formatDuration(row.activeTime);
     }
-
-    if (key === 'productivePercent') {
-      return (
-        <div className={styles.usageSlot}>
-          <div
-            className={styles.progressbar}
-            style={{ width: `${value}%` }}
-          />
-          <span>{value}%</span>
-        </div>
-      );
-    }
-
     if (key === 'productivity') {
       return (
         <div className={styles.productivitySlot}>
@@ -180,11 +127,9 @@ export default function UsersTable({ searchQuery = '', filters = {} }) {
         </div>
       );
     }
-
-    if (key === 'storageGB') {
-      return `${value} ГБ`;
+    if (key === 'lastActivity') {
+      return `${row.lastActivityTime.toLocaleTimeString()}, ${row.lastActivityTime.toLocaleDateString()}`
     }
-
     return value;
   };
 
@@ -216,11 +161,12 @@ export default function UsersTable({ searchQuery = '', filters = {} }) {
         columns={columns}
         data={filteredData}
         renderCell={renderCell}
-        renderRow={(row, rowIdx, rowContent) => {
+        renderRow={(row: TWorkerStats, rowIdx: number, rowContent: string) => {
           return (
             <tr
               key={rowIdx}
               onClick={(e) => {
+                //@ts-ignore
                 const td = e.target.closest('td');
                 const cellIndex = td?.cellIndex;
                 if (cellIndex === 0) return;

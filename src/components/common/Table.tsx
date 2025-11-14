@@ -1,8 +1,16 @@
 'use client';
 
+import { ReactElement } from 'react'
 import styles from './Table.module.css';
 
-export default function Table({ columns, data, renderCell, renderRow }) {
+
+interface Props {
+  columns: { key: string, label: string | ReactElement }[]
+  data: any[] | undefined
+  renderCell: (key: string, value: string|number|React.ReactElement, row: any) => string|number|React.ReactElement
+  renderRow?: any
+}
+export default function Table({ columns, data, renderCell, renderRow }: Props) {
   return (
     <div className={styles.tableContainer}>
       <table className={styles.dataTable}>
@@ -14,7 +22,7 @@ export default function Table({ columns, data, renderCell, renderRow }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, rowIdx) => {
+          {data?.map((row, rowIdx) => {
             const rowContent = (
               <>
                 {columns.map((col) => (

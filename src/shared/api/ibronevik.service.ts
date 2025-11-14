@@ -43,8 +43,10 @@ class ApiService {
     return checkError(await $api.get('/data'))
   }
 
-  async getUser() {
-    return checkError<TGetUserResponse>(await $api.post('/user', {
+  async getUser( u_id?: string ) {
+    let query = '/user'
+    if ( u_id ) query += `/${u_id}`
+    return checkError<TGetUserResponse>(await $api.post(query, {
       token: localStorage.getItem('token'),
       u_hash: localStorage.getItem('u_hash')
     }))

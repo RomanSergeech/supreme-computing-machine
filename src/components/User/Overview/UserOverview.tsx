@@ -4,8 +4,14 @@ import styles from './UserOverview.module.css';
 import RecentActivity from './RecentActivity';
 import { useTranslations } from 'next-intl';
 import { useFormatDuration } from '@/shared/utils/useFormatDuration';
+import { TWorkerStats } from '@/shared/types/office.types'
 
-export default function UserOverview() {
+
+interface Props {
+  user: TWorkerStats
+}
+export default function UserOverview({ user }: Props) {
+
   const t = useTranslations('userOverview');
   const formatDuration = useFormatDuration();
 
@@ -16,21 +22,19 @@ export default function UserOverview() {
         <div className={styles.cardHeader}>{t('currentActivity')}</div>
         <div className={styles.cardBody}>
           <div className={styles.activityRow}>
-            <div className={styles.iconPlaceholder} />
             <div>
-              <p className={styles.label}>VS Code</p>
+              <p className={styles.label}>{user.lastActiveApp}</p>
               <p className={styles.subtext}>{t('activeNow')}</p>
             </div>
           </div>
           <div className={styles.activityRow}>
-            <div className={styles.iconPlaceholder} />
             <div>
-              <p className={styles.label}>github.com</p>
+              <p className={styles.label}>{user.lastActiveSite}</p>
               <p className={styles.subtext}>{t('lastWebsite')}</p>
             </div>
           </div>
           <div className={styles.footer}>
-            {t('lastActivity')}: 09:29:16
+            {t('lastActivity')}: {`${user.lastActivityTime.toLocaleTimeString()}, ${user.lastActivityTime.toLocaleDateString()}`}
           </div>
         </div>
       </div>
@@ -40,10 +44,10 @@ export default function UserOverview() {
         <div className={styles.cardHeader}>{t('timeBreakdown')}</div>
         <div className={styles.cardBody}>
           {[
-            { key: 'productive', color: '#22c55e', minutes: 360, width: '75%' },
-            { key: 'neutral', color: '#3b82f6', minutes: 90, width: '18.75%' },
-            { key: 'distracting', color: '#ef4444', minutes: 30, width: '6.25%' },
-            { key: 'idle', color: '#9ca3af', minutes: 60, width: '12.5%' },
+            { key: 'productive', color: '#22c55e', minutes: user.productivityDurationToday?.productive.duration, width: user.productivityDurationToday?.productive.percent+'%' },
+            { key: 'neutral', color: '#3b82f6', minutes: user.productivityDurationToday?.neutral.duration, width: user.productivityDurationToday?.neutral.percent+'%' },
+            { key: 'distracting', color: '#ef4444', minutes: user.productivityDurationToday?.distracting.duration, width: user.productivityDurationToday?.distracting.percent+'%' },
+            { key: 'idle', color: '#9ca3af', minutes: user.productivityDurationToday?.afk.duration, width: user.productivityDurationToday?.afk.percent+'%' },
           ].map((item, i) => (
             <div key={i}>
               <div className={styles.barLabel}>
@@ -68,7 +72,7 @@ export default function UserOverview() {
       </div>
 
       <div className={styles.bigCard}>
-        <RecentActivity />
+        <RecentActivity user={user} />
       </div>
     </div>
   );

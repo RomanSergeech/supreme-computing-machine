@@ -7,8 +7,20 @@ import EmployeeInfo from './EmployeeInfo';
 import { useState } from 'react';
 import DateRangeDropdown from '@/components/common/DateRangeDropdown';
 import styles from './UserPageHeader.module.css';
+import { TWorkerStats } from '@/shared/types/office.types'
 
-export default function UserPageHeader({ employee, dateRange, onDateChange }) {
+interface Props {
+  employee: TWorkerStats
+  dateRange: {
+    from: Date;
+    to: Date;
+  }
+  onDateChange: React.Dispatch<React.SetStateAction<{
+    from: Date;
+    to: Date;
+  }>>
+}
+export default function UserPageHeader({ employee, dateRange, onDateChange }: Props) {
     const router = useRouter();
     const t = useTranslations('userProfile');
     const [range, setRange] = useState({
@@ -32,10 +44,10 @@ export default function UserPageHeader({ employee, dateRange, onDateChange }) {
                     <DateRangeDropdown dateRange={range} onDateRangeChange={setRange} />
                 </div>
                 <div className={styles.status}>
-                    <span
-                        className={`${styles.statusDot} ${employee.isActive ? styles.active : styles.inactive}`}
+                    {/* <span
+                      className={`${styles.statusDot} ${employee.isActive ? styles.active : styles.inactive}`}
                     />
-                    {employee.isActive ? t('status.active') : t('status.inactive')}
+                    {employee.isActive ? t('status.active') : t('status.inactive')} */}
                 </div>
 
                 <EmployeeInfo employee={employee} />
