@@ -77,7 +77,7 @@ export const useOfficeStore = create(
 
             const buckets = getBuckets(bucketsObj)
 
-            const details = useUserStore.getState().u_details
+            const details = useUserStore.getState().user?.u_details || []
             const categorisedApps = getCategorisedApps({ details, buckets, eventsDoc })
             const categorisedSites = getCategorisedSites({ details, buckets, eventsDoc })
 

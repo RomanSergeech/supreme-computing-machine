@@ -5,6 +5,9 @@ import styles from './OfficeSettings.module.css';
 import Categorization from './Categorization';
 
 export default function OfficeSettings() {
+
+  
+
   const t = useTranslations('settings');
 
   return (

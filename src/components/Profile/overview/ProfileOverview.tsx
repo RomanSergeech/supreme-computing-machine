@@ -22,17 +22,17 @@ type TFormFields = keyof typeof FORM_FILEDS
 
 export default function ProfileOverview() {
 
-  const userStore = useUserStore(state => state)
+  const userStore = useUserStore(state => state.user)
 
   const [isEditing, setIsEditing] = useState(false)
   
   const [user, setUser] = useState<Record<TFormFields, string|null>>({
-    fullName: `${userStore.u_name} ${userStore.u_family}`,
-    email: userStore.u_email || '',
-    phone: userStore.u_phone || '',
+    fullName: `${userStore?.u_name} ${userStore?.u_family}`,
+    email: userStore?.u_email || '',
+    phone: userStore?.u_phone || '',
     position: '',
     department: '',
-    location: userStore.u_city || '',
+    location: userStore?.u_city || '',
     registeredAt: '',
   })
   
@@ -63,19 +63,19 @@ export default function ProfileOverview() {
 
     const data: Partial<TUser> = {}
 
-    if ( f.email !== userStore.u_email ) {
+    if ( f.email !== userStore?.u_email ) {
       data.u_email = f.email
     }
-    if ( f.fullName.split(' ')[0] !== userStore.u_name ) {
+    if ( f.fullName.split(' ')[0] !== userStore?.u_name ) {
       data.u_name = f.fullName.split(' ')[0]
     }
-    if ( f.fullName.split(' ')[1] !== userStore.u_family ) {
+    if ( f.fullName.split(' ')[1] !== userStore?.u_family ) {
       data.u_family = f.fullName.split(' ')[1]
     }
-    if ( f.phone !== (userStore.u_phone || '') ) {
+    if ( f.phone !== (userStore?.u_phone || '') ) {
       data.u_phone = f.phone
     }
-    if ( f.location !== (userStore.u_city || '') ) {
+    if ( f.location !== (userStore?.u_city || '') ) {
       data.u_city = f.location
     }
 

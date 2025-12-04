@@ -8,7 +8,7 @@ import { TUser } from '@/shared/types/user.types'
 import { useAuthStore } from '@/shared/store/auth.store'
 import Image from 'next/image'
 
-export default function UserDropdown({ user }: { user: TUser }) {
+export default function UserDropdown({ user }: { user: TUser | null }) {
 
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -29,10 +29,10 @@ export default function UserDropdown({ user }: { user: TUser }) {
     <div className={styles.dropdownWrapper} ref={dropdownRef}>
       <button onClick={() => setOpen(!open)} className={styles.avatarButton}>
         <div className={styles.avatarCircle}>
-          {user.u_photo ? (
+          {user?.u_photo ? (
             <Image src={user.u_photo} alt="avatar" />
           ) : (
-            user.u_name
+            user?.u_name
           )}
         </div>
       </button>
@@ -40,8 +40,8 @@ export default function UserDropdown({ user }: { user: TUser }) {
       {open && (
         <div className={styles.dropdownMenu}>
           <div className={styles.userInfo}>
-            <strong>{user.u_name}</strong>
-            <span>{user.u_email}</span>
+            <strong>{user?.u_name}</strong>
+            <span>{user?.u_email}</span>
           </div>
           <button  onClick={() => router.push('/profile?tab=profile')}>{t('profile')}</button>
           <button  onClick={() => router.push('/profile?tab=settings')}>{t('settings')}</button>

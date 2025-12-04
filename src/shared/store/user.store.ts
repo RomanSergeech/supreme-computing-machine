@@ -3,8 +3,7 @@ import { devtools } from 'zustand/middleware'
 import { TSubscription, TUser, TUserDetails } from '../types/user.types'
 import { tryCatch } from '../utils'
 import ApiService from '../api/ibronevik.service'
-import { TCreatePaymentRequest, TCreateSubscriptionRequest, TEditUserRequest } from '../types/api.types'
-import { useAuthStore } from './auth.store'
+import { TCreatePaymentRequest, TCreateSubscriptionRequest } from '../types/api.types'
 
 
 const DETAILS = [
@@ -194,7 +193,8 @@ const DETAILS = [
 ] satisfies TUserDetails[]
 
 
-interface TState extends TUser {
+interface TState {
+  user: TUser | null
   subscription: TSubscription[]
 }
 
@@ -208,16 +208,18 @@ interface TStore extends TState {
 }
 
 const initialState: TState = {
-  u_id: '',
-  u_email: '',
-  u_name: '',
-  u_family: '',
-  u_role: '',
-  u_phone: '',
-  u_photo: '',
-  u_city: '',
+  user: {
+    u_id: '',
+    u_email: '',
+    u_name: '',
+    u_family: '',
+    u_role: '',
+    u_phone: '',
+    u_photo: '',
+    u_city: '',
+    u_details: null
+  },
   subscription: [],
-  u_details: null
 }
 
 export const useUserStore = create(
@@ -225,7 +227,7 @@ export const useUserStore = create(
     ...initialState,
 
     saveUserData: ( user ) => {
-      set({ ...user })
+      set({ user: { ...user } })
     },
 
     getUser: () => tryCatch({
@@ -238,9 +240,10 @@ export const useUserStore = create(
           u_details: DETAILS
         }
 
-        console.log(user);
-
-        set({ ...user })
+        set({ user })
+      },
+      onError: async () => {
+        set({ user: null })
       }
     }),
 
@@ -249,14 +252,16 @@ export const useUserStore = create(
 
         await ApiService.editUser(sendData, u_id)
 
-        set({ ...sendData })
+        const user = get().user as TUser
+
+        set({ user: { ...user, ...sendData } })
       }
     }),
 
     getUserSubscription: ( subs_id ) => tryCatch({
       callback: async () => {
 
-        const u_id = get().u_id
+        const u_id = get().user?.u_id
 
         const { data } = await ApiService.getUserSubscription(u_id, subs_id)
 

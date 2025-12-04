@@ -9,17 +9,17 @@ interface PrivateRouteProps {
 }
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
-  const user = useUserStore(state => state)
+  const user = useUserStore(state => state.user)
 
   const router = useRouter()
 
   useEffect(() => {
-    if ( user.u_id === '' ) {
+    if ( user === null ) {
       router.push('/')
     }
   }, [user, router])
 
-  if ( !user.u_id ) {
+  if ( !user ) {
     return <></>
   }
 

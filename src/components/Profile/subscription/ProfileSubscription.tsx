@@ -88,6 +88,8 @@ const Subscription = ({ subscription, setShowRenew, setShowChange }: Subscriptio
 
   const tariff = tariffs[subscription?.tariff || '0']
 
+  if ( !tariff ) return <div className={styles.subscriptionCard}></div>
+
   return (
     <div className={styles.subscriptionCard}>
       <div className={styles.cardHeader}>
@@ -183,7 +185,7 @@ const PaymentsList = ({ subscriptions }: PaymentsListProps) => {
   const subscriptionsArr = subscriptions.reduce<{ plan: string, period: string, amount: string, status: string }[]>((acc, sub) => {
     const tariff = tariffs[sub?.tariff || '0']
     acc.push({
-      plan: tariff.ru,
+      plan: tariff?.ru,
       period: sub.cancellation_date,
       amount: tariff?.price + ' ' + tariff?.currency,
       status: getSubscriptionStatus(sub, subscription_statuses),
@@ -222,7 +224,7 @@ const getSubscriptionStatus = ( sub: TSubscription | null, subscription_statuses
 
   if ( sub?.paid === false ) return 'Не оплачено'
 
-  if ( sub?.subs_status ) return subscription_statuses[sub?.subs_status || '1']['ru']
+  if ( sub?.subs_status ) return subscription_statuses[sub?.subs_status || '1']?.['ru']
 
   return 'Закончена'
 }
