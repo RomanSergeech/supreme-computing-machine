@@ -47,7 +47,7 @@ export default function ApplicationsTable({ user }: Props) {
       const matchesMinTime = minTime ? Math.round(row.duration / 60) >= Number(minTime) : true;
       return matchesSearch && matchesCategory && matchesMinTime;
     });
-  }, [draftSearch, selectedCategory, minTime]);
+  }, [draftSearch, selectedCategory, minTime, rawData]);
 
   const renderCell = (key: string, value: any, row: TActivitySummary) => {
     if (key === 'category') return <CategoryLabel category={row.productivity} />;

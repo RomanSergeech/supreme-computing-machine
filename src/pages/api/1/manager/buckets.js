@@ -2,7 +2,7 @@ import { DOMAIN, Endpoints } from "@/shared/config/api.config"
 
 const API_URL = DOMAIN + Endpoints.buckets
 
-export default async (req, res) => {
+const requestHandler = async (req, res) => {
   try {
       const formData = new URLSearchParams(req.body);
 
@@ -27,3 +27,5 @@ export default async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+export default requestHandler
