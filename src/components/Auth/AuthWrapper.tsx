@@ -12,6 +12,7 @@ const AuthWrapper = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
+
     if ( token ) {
       useUserStore.getState().getUser()
         .then(() => {
@@ -19,11 +20,13 @@ const AuthWrapper = ({ children }: { children: ReactNode }) => {
             router.push('/office')
           }
         })
+    } else {
+      router.push('/')
     }
 
     useStaticStore.getState().getSiteStatic()
 
-  }, [router, pathname])
+  }, [router])
 
   return children
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUserStore } from '@/shared/store/user.store'
 import { getFormData, showAlert } from '@/shared/utils'
 
@@ -35,6 +35,18 @@ export default function ProfileOverview() {
     location: userStore?.u_city || '',
     registeredAt: '',
   })
+
+  useEffect(() => {
+    setUser({
+      fullName: `${userStore?.u_name} ${userStore?.u_family}`,
+      email: userStore?.u_email || '',
+      phone: userStore?.u_phone || '',
+      position: '',
+      department: '',
+      location: userStore?.u_city || '',
+      registeredAt: '',
+    })
+  }, [userStore])
   
   const t = useTranslations('profileOverview')
 
